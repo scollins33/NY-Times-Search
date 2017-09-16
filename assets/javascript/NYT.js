@@ -1,14 +1,14 @@
-
-var searchTerm = 'ronald reagan'
+var today = new Date();
+var baseURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?";
+var searchTerm = 'ronald reagan';
 var recordNumber = 0;
 var startYear= '19000101';
-var endYear = getEndYear();
-var today = new Date();
+var endYear = getEndYear(today);
 
-function getEndYear () {
-    var thisDay = today.getDate();
-    var thisMonth = today.getMonth();
-    var thisYear = today.getFullYear();
+function getEndYear (pDay) {
+    var thisDay = pDay.getDate();
+    var thisMonth = pDay.getMonth();
+    var thisYear = pDay.getFullYear();
 
     if (thisDay < 10) {
         thisDay = '0' + thisDay;
@@ -23,19 +23,17 @@ function getEndYear () {
     return endYear;
 }
 
-var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+// https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=4bd4b70fd6a647289476db64bb764974&q=ronald+reagan&begin_date=19900101&end_date=20170101
+var callURL = baseURL + 'api-key=4bd4b70fd6a647289476db64bb764974' +
+    '&q=' + searchTerm +
+    '&begin_date=' + startYear +
+    '&end_date=' + endYear;
 
-url += '?' + $.param({
-    'api-key': "4bd4b70fd6a647289476db64bb764974",
-    'q': searchTerm,
-    'begin_date': startYear,
-    'end_date': endYear
-});
 $.ajax({
-    url: url,
+    url: callURL,
     method: 'GET',
 }).done(function(result) {
-    console.log(url);
+    console.log(callURL);
     console.log(result);
 }).fail(function(err) {
     throw err;
@@ -46,7 +44,17 @@ $('#').on('click',function() {
     recordNumber = $('#').val().trim();
     startYear = $('#').val().trim();
     endYear = $('#').val().trim();
-})
+
+    if (startYear === null) {
+        startYear = 19000101;
+    }
+
+    if (endYear === null) {
+        endYear = getEndYear();
+    }
+
+
+});
 
 
 $('#').append(result)
