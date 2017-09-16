@@ -3,8 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Lato|Bitter:700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <body>
+		<header class="text-center">
+			 <div class="container">
+				<div class="row">
+					<div class="panel">
+						<div class="jumbotron">
+			 				<h1 class="fa fa-newspaper-o"> <strong>New York Times</strong></h1>
+						</div>
+					</div>
+			 	</div>
+			 </div>
+		</header>
+		<section class ="container">
+			<div class="row">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							<i class="fa fa-list-alt"> </i>
+							Search Parameters
+						</h3>
+						<div class="panel-body">
+							<form role="form">
+								<div class="form-group">
+									<label for="search">
+										Search Term
+									</label>	
+									<input type="text" class="form-control" id="searchTerm">
+								</div>
+								<div class="form-group">
+									<label for="search">
+										Number of Records to Retrieve
+									</label>	
+									<input type="text" class="form-control" id="numberRecordSelect">
+								</div>
+								<div class="form-group">
+									<label for="search">
+										Start Year
+									</label>	
+									<input type="text" class="form-control" id="startYear">
+								</div>
+								<div class="form-group">
+									<label for="search">
+										End Year
+									</label>	
+									<input type="text" class="form-control" id="endYear">
+								</div>
+								<button id="search">Search</button>
+								<button id="clearResults">Clear Results</button>
+							</form>
+						</div>
 
+					</div>
+				</div>
+			</div>
+		</section>
 </body>
 </html>
